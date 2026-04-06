@@ -100,9 +100,9 @@ uv run ruff check .
 
 ## Documentação
 
-- [RUA_DOCS.md](/Users/marceufilho/ibmec/compiladores-marceu/RUA_DOCS.md): documentação da linguagem Rua V1
-- [SRC_OVERVIEW.md](/Users/marceufilho/ibmec/compiladores-marceu/SRC_OVERVIEW.md): visão geral dos módulos em `src/`
-- [EXAMPLE_FLOW.md](/Users/marceufilho/ibmec/compiladores-marceu/EXAMPLE_FLOW.md): fluxo de um exemplo passando pelo pipeline
+- [RUA_QUICKSTART.md](/Users/marceufilho/ibmec/compiladores-marceu/RUA_QUICKSTART.md): guia rápido da linguagem para novos usuários
+- [COMO_O_COMPILADOR_RUA_FUNCIONA.md](/Users/marceufilho/ibmec/compiladores-marceu/COMO_O_COMPILADOR_RUA_FUNCIONA.md): documento técnico explicando como o compilador funciona hoje
+- [DEVELOPER_OVERVIEW.md](/Users/marceufilho/ibmec/compiladores-marceu/DEVELOPER_OVERVIEW.md): visão geral do código para manutenção e colaboração
 
 ## Observações
 
