@@ -1,0 +1,33 @@
+import "arduino";
+import "pet";
+
+global hunger = 0;
+global happiness = 100;
+global health = 100;
+global sick = false;
+
+function feed():
+    hunger = 0;
+end
+
+function tick():
+    hunger = hunger + 1;
+    if hunger > 10 then
+        health = health - 1;
+    end
+end
+
+function draw():
+    screen_clear();
+    screen_print(0, 0, "PET");
+    screen_print(0, 10, "HUNGER");
+    screen_update();
+end
+
+function main_loop():
+    while true do
+        tick();
+        draw();
+        delay_ms(1000);
+    end
+end

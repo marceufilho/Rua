@@ -1,0 +1,5 @@
+Program
+└── FunctionDecl(name='main', params=[])
+    └── body
+        └── ReturnStmt
+            └── value: null

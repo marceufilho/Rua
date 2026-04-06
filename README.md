@@ -1,0 +1,111 @@
+# Rua V1 Compiler Prototype
+
+Este projeto implementa um protótipo simples da linguagem Rua V1 em Python.
+
+O pipeline atual faz:
+
+1. leitura do arquivo `.rua`
+2. scanner / lexer
+3. parser
+4. geração da AST em texto
+5. transpiração para C
+
+## Requisitos
+
+- Python 3.11+
+- `uv`
+
+## Instalação
+
+Na raiz do projeto:
+
+```bash
+uv sync
+```
+
+## Como executar
+
+Use o script `demo.py` passando um arquivo `.rua`:
+
+```bash
+uv run python demo.py examples/minimal.rua
+```
+
+Isso gera, por padrão, os arquivos na pasta `out/`:
+
+- `minimal.ast.txt`
+- `minimal.c`
+
+Você também pode escolher outra pasta de saída:
+
+```bash
+uv run python demo.py examples/pet.rua --out-dir out
+```
+
+## Exemplos disponíveis
+
+Os exemplos ficam na pasta `examples/`.
+
+### Exemplo mínimo
+
+```bash
+uv run python demo.py examples/minimal.rua
+```
+
+### Exemplo do pet
+
+```bash
+uv run python demo.py examples/pet.rua
+```
+
+### Exemplo de calculadora
+
+```bash
+uv run python demo.py examples/calculator.rua
+```
+
+
+## O que sai como resultado
+
+Para cada arquivo de entrada, o projeto gera:
+
+- um arquivo `.ast.txt` com a árvore sintática em formato legível
+- um arquivo `.c` com o código C gerado
+
+Exemplo:
+
+```bash
+uv run python demo.py examples/calculator.rua --out-dir out
+```
+
+Arquivos gerados:
+
+- `out/calculator.ast.txt`
+- `out/calculator.c`
+
+## Testes e qualidade
+
+Para rodar os testes:
+
+```bash
+uv run pytest -q
+```
+
+Para rodar formatação e lint:
+
+```bash
+uv run ruff format .
+uv run ruff check .
+```
+
+## Documentação
+
+- [RUA_DOCS.md](/Users/marceufilho/ibmec/compiladores-marceu/RUA_DOCS.md): documentação da linguagem Rua V1
+- [SRC_OVERVIEW.md](/Users/marceufilho/ibmec/compiladores-marceu/SRC_OVERVIEW.md): visão geral dos módulos em `src/`
+- [EXAMPLE_FLOW.md](/Users/marceufilho/ibmec/compiladores-marceu/EXAMPLE_FLOW.md): fluxo de um exemplo passando pelo pipeline
+
+## Observações
+
+- A linguagem ainda é pequena e propositalmente simples.
+- `print(...)`, `println(...)` e `read_line()` foram modeladas como built-ins.
+- O exemplo `tic_tac_toe.rua` é pensado para o estilo embarcado da linguagem, não para terminal tradicional.

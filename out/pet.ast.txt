@@ -1,0 +1,90 @@
+Program
+├── ImportDecl(module_name="arduino")
+├── ImportDecl(module_name="pet")
+├── GlobalDecl
+│   ├── name: 'hunger'
+│   └── initializer: LiteralExpr(0)
+├── GlobalDecl
+│   ├── name: 'happiness'
+│   └── initializer: LiteralExpr(100)
+├── GlobalDecl
+│   ├── name: 'health'
+│   └── initializer: LiteralExpr(100)
+├── GlobalDecl
+│   ├── name: 'sick'
+│   └── initializer: LiteralExpr(False)
+├── FunctionDecl(name='feed', params=[])
+│   └── body
+│       └── ExprStmt
+│           └── AssignExpr
+│               ├── target: 'hunger'
+│               └── value: LiteralExpr(0)
+├── FunctionDecl(name='tick', params=[])
+│   └── body
+│       ├── ExprStmt
+│       │   └── AssignExpr
+│       │       ├── target: 'hunger'
+│       │       └── value: BinaryExpr
+│       │           ├── left: VariableExpr("hunger")
+│       │           ├── operator: '+'
+│       │           └── right: LiteralExpr(1)
+│       └── IfStmt
+│           ├── condition: BinaryExpr
+│           │   ├── left: VariableExpr("hunger")
+│           │   ├── operator: '>'
+│           │   └── right: LiteralExpr(10)
+│           ├── then_branch
+│           │   └── ExprStmt
+│           │       └── AssignExpr
+│           │           ├── target: 'health'
+│           │           └── value: BinaryExpr
+│           │               ├── left: VariableExpr("health")
+│           │               ├── operator: '-'
+│           │               └── right: LiteralExpr(1)
+│           └── else_branch: null
+├── FunctionDecl(name='draw', params=[])
+│   └── body
+│       ├── ExprStmt
+│       │   └── CallExpr
+│       │       ├── callee: VariableExpr("screen_clear")
+│       │       └── arguments
+│       │           └── []
+│       ├── ExprStmt
+│       │   └── CallExpr
+│       │       ├── callee: VariableExpr("screen_print")
+│       │       └── arguments
+│       │           ├── LiteralExpr(0)
+│       │           ├── LiteralExpr(0)
+│       │           └── LiteralExpr('PET')
+│       ├── ExprStmt
+│       │   └── CallExpr
+│       │       ├── callee: VariableExpr("screen_print")
+│       │       └── arguments
+│       │           ├── LiteralExpr(0)
+│       │           ├── LiteralExpr(10)
+│       │           └── LiteralExpr('HUNGER')
+│       └── ExprStmt
+│           └── CallExpr
+│               ├── callee: VariableExpr("screen_update")
+│               └── arguments
+│                   └── []
+└── FunctionDecl(name='main_loop', params=[])
+    └── body
+        └── WhileStmt
+            ├── condition: LiteralExpr(True)
+            └── body
+                ├── ExprStmt
+                │   └── CallExpr
+                │       ├── callee: VariableExpr("tick")
+                │       └── arguments
+                │           └── []
+                ├── ExprStmt
+                │   └── CallExpr
+                │       ├── callee: VariableExpr("draw")
+                │       └── arguments
+                │           └── []
+                └── ExprStmt
+                    └── CallExpr
+                        ├── callee: VariableExpr("delay_ms")
+                        └── arguments
+                            └── LiteralExpr(1000)

@@ -1,0 +1,7 @@
+function main():
+    print("Qual e o seu nome? ");
+    let name = read_line();
+
+    print("Ola, ");
+    println(name);
+end

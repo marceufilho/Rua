@@ -1,0 +1,123 @@
+Program
+├── GlobalDecl
+│   ├── name: 'result'
+│   └── initializer: LiteralExpr(0)
+├── FunctionDecl(name='add', params=['x', 'y'])
+│   └── body
+│       └── ReturnStmt
+│           └── value: BinaryExpr
+│               ├── left: VariableExpr("x")
+│               ├── operator: '+'
+│               └── right: VariableExpr("y")
+├── FunctionDecl(name='subtract', params=['x', 'y'])
+│   └── body
+│       └── ReturnStmt
+│           └── value: BinaryExpr
+│               ├── left: VariableExpr("x")
+│               ├── operator: '-'
+│               └── right: VariableExpr("y")
+├── FunctionDecl(name='multiply', params=['x', 'y'])
+│   └── body
+│       └── ReturnStmt
+│           └── value: BinaryExpr
+│               ├── left: VariableExpr("x")
+│               ├── operator: '*'
+│               └── right: VariableExpr("y")
+├── FunctionDecl(name='divide', params=['x', 'y'])
+│   └── body
+│       ├── IfStmt
+│       │   ├── condition: BinaryExpr
+│       │   │   ├── left: VariableExpr("y")
+│       │   │   ├── operator: '=='
+│       │   │   └── right: LiteralExpr(0)
+│       │   ├── then_branch
+│       │   │   └── ReturnStmt
+│       │   │       └── value: LiteralExpr(0)
+│       │   └── else_branch: null
+│       └── ReturnStmt
+│           └── value: BinaryExpr
+│               ├── left: VariableExpr("x")
+│               ├── operator: '/'
+│               └── right: VariableExpr("y")
+├── FunctionDecl(name='max', params=['x', 'y'])
+│   └── body
+│       ├── IfStmt
+│       │   ├── condition: BinaryExpr
+│       │   │   ├── left: VariableExpr("x")
+│       │   │   ├── operator: '>'
+│       │   │   └── right: VariableExpr("y")
+│       │   ├── then_branch
+│       │   │   └── ReturnStmt
+│       │   │       └── value: VariableExpr("x")
+│       │   └── else_branch: null
+│       └── ReturnStmt
+│           └── value: VariableExpr("y")
+├── FunctionDecl(name='min', params=['x', 'y'])
+│   └── body
+│       ├── IfStmt
+│       │   ├── condition: BinaryExpr
+│       │   │   ├── left: VariableExpr("x")
+│       │   │   ├── operator: '<'
+│       │   │   └── right: VariableExpr("y")
+│       │   ├── then_branch
+│       │   │   └── ReturnStmt
+│       │   │       └── value: VariableExpr("x")
+│       │   └── else_branch: null
+│       └── ReturnStmt
+│           └── value: VariableExpr("y")
+└── FunctionDecl(name='main', params=[])
+    └── body
+        ├── LocalDecl
+        │   ├── name: 'a'
+        │   └── initializer: LiteralExpr(20)
+        ├── LocalDecl
+        │   ├── name: 'b'
+        │   └── initializer: LiteralExpr(5)
+        ├── ExprStmt
+        │   └── AssignExpr
+        │       ├── target: 'result'
+        │       └── value: CallExpr
+        │           ├── callee: VariableExpr("add")
+        │           └── arguments
+        │               ├── VariableExpr("a")
+        │               └── VariableExpr("b")
+        ├── ExprStmt
+        │   └── AssignExpr
+        │       ├── target: 'result'
+        │       └── value: CallExpr
+        │           ├── callee: VariableExpr("subtract")
+        │           └── arguments
+        │               ├── VariableExpr("result")
+        │               └── LiteralExpr(3)
+        ├── ExprStmt
+        │   └── AssignExpr
+        │       ├── target: 'result'
+        │       └── value: CallExpr
+        │           ├── callee: VariableExpr("multiply")
+        │           └── arguments
+        │               ├── VariableExpr("result")
+        │               └── LiteralExpr(2)
+        ├── ExprStmt
+        │   └── AssignExpr
+        │       ├── target: 'result'
+        │       └── value: CallExpr
+        │           ├── callee: VariableExpr("divide")
+        │           └── arguments
+        │               ├── VariableExpr("result")
+        │               └── VariableExpr("b")
+        ├── ExprStmt
+        │   └── AssignExpr
+        │       ├── target: 'result'
+        │       └── value: CallExpr
+        │           ├── callee: VariableExpr("max")
+        │           └── arguments
+        │               ├── VariableExpr("result")
+        │               └── LiteralExpr(10)
+        └── ExprStmt
+            └── AssignExpr
+                ├── target: 'result'
+                └── value: CallExpr
+                    ├── callee: VariableExpr("min")
+                    └── arguments
+                        ├── VariableExpr("result")
+                        └── LiteralExpr(50)
