@@ -101,8 +101,8 @@ uv run ruff check .
 ## Documentação
 
 - [RUA_QUICKSTART.md](/Users/marceufilho/ibmec/compiladores-marceu/RUA_QUICKSTART.md): guia rápido da linguagem para novos usuários
-- [COMO_O_COMPILADOR_RUA_FUNCIONA.md](/Users/marceufilho/ibmec/compiladores-marceu/COMO_O_COMPILADOR_RUA_FUNCIONA.md): documento técnico explicando como o compilador funciona hoje
-- [DEVELOPER_OVERVIEW.md](/Users/marceufilho/ibmec/compiladores-marceu/DEVELOPER_OVERVIEW.md): visão geral do código para manutenção e colaboração
+- [Documento Tecnico](/Users/marceufilho/ibmec/compiladores-marceu/Documento-tecnico-RUA.md): documento técnico explicando como o compilador funciona hoje
+- [Visao do codigo](/Users/marceufilho/ibmec/compiladores-marceu/Overview-Codigo.md): visão geral do código para manutenção e colaboração
 
 ## Observações
 
